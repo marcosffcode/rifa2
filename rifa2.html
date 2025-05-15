@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Digital - Ganhe uma Amarok V6 ou R$150.000</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                        secondary: '#00AA00',
+                        dark: '#111827',
+                        gold: '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            overflow-x: hidden;
+        }
+        
+        .diagonal-bg {
+            position: relative;
+            isolation: isolate;
+        }
+        
+        .diagonal-bg::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            transform: skewY(-3deg);
+            background: linear-gradient(135deg, #FF0000 0%, #111827 100%);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00AA00, 0 0 40px #00AA00;
+            animation: flicker 1.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00AA00, 0 0 40px #00AA00;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+            }
+        }
+        
+        .glow-button {
+            box-shadow: 0 0 15px rgba(0, 170, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(0, 170, 0, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .pulse-button {
+            animation: pulse-slow 2s infinite;
+        }
+        
+        .zoom-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .zoom-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-badge {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .trophy-icon {
+            color: gold;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header Section -->
+    <!-- Header Section - Versão Mobile-Otimizada -->
+<header class="bg-black text-gray-100 pt-16 md:pt-8 pb-12 md:pb-24 relative overflow-hidden border-b border-gray-800">
+    
+    <!-- Faixa de Emergência Mobile-Friendly -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-2 fixed top-0 left-0 right-0 z-50 flex flex-col md:flex-row justify-center items-center text-center">
+        <span class="font-black text-xs md:text-sm uppercase tracking-wide">🚨 CONTAGEM REGRESSIVA: 1% DE COTAS!</span>
+        <div id="countdown" class="text-xs md:text-sm bg-black/20 px-2 py-1 rounded md:ml-4">02:00:00</div>
+    </div>
+
+    <div class="container mx-auto px-4 xl:px-0 mt-16 md:mt-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+            
+            <!-- Texto de Urgência -->
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <h1 class="text-3xl md:text-4xl xl:text-5xl font-black mb-6 leading-tight">
+                    <div class="text-red-500 mb-4 animate-pulse">ÚLTIMA CHANCE!</div>
+                    <div class="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                        ASSISTA ISSO ANTES QUE DESAPAREÇA!
+                    </div>
+                </h1>
+
+                <p class="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    <span class="text-red-400 font-bold">ALERTA:</span> Esse vídeo será removido em 
+                    <span id="countdown-text" class="text-green-400 font-bold">EM BREVE</span> e essa é sua 
+                    <span class="underline">ÚNICA OPORTUNIDADE</span> de garantir:
+                </p>
+
+                <!-- Lista de Prêmios Simplificada -->
+                <div class="mb-8 space-y-2">
+                    <div class="flex items-center justify-center lg:justify-start space-x-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-lg font-bold">AMAROK V6 2025 0KM</span>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-start space-x-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-lg font-bold">OU R$150.000 NO PIX</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Container do Vídeo Otimizado -->
+            <div class="lg:w-1/2 relative w-full mt-6 lg:mt-0">
+                <div class="aspect-[9/16] md:aspect-video rounded-xl overflow-hidden shadow-2xl border-2 border-green-500 video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/8ecnRjNbaH8?si=7Mf-X0PotVz2VILh" 
+                        title="YouTube video player" 
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        class="w-full h-full object-cover">
+                    </iframe>
+                </div>
+
+                <!-- Selo de Urgência Mobile -->
+                <div class="absolute -bottom-4 right-2 bg-red-600 p-3 rounded-lg shadow border border-red-700">
+                    <div class="text-center">
+                        <div class="text-xl font-black text-white">9489523</div>
+                        <div class="text-[0.6rem] font-semibold text-red-200 tracking-wide">COTA PREMIADA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .video-container {
+        box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+        .video-container {
+            border-width: 1px;
+            border-radius: 12px;
+        }
+        
+        header {
+            padding-top: 6rem;
+        }
+    }
+</style>
+
+<script>
+    // Contador Regressivo
+    let timeLeft = 7200; // 2 horas em segundos
+
+    function updateTimer() {
+        const hours = Math.floor(timeLeft / 3600);
+        const minutes = Math.floor((timeLeft % 3600) / 60);
+        const seconds = timeLeft % 60;
+        
+        document.getElementById('countdown').innerHTML = 
+            `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        
+        if(timeLeft <= 0) {
+            clearInterval(timerInterval);
+        } else {
+            timeLeft--;
+        }
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+</script>
+
+
+  <!-- Prizes Section - Dark Urgent Version -->
+<section class="py-16 bg-black">
+    <div class="container mx-auto px-4">
+        <!-- Título com Gradiente -->
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-12 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent uppercase">
+            RESTA APENAS 1%<br>
+            <span class="text-white">E A COTA 9489523 ESTÁ DISPONÍVEL!</span>
+        </h2>
+
+        <!-- Cards de Urgência -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            
+            <!-- Card Amarok -->
+            <div class="bg-gray-900 rounded-2xl p-6 shadow-2xl border-2 border-green-500/30 hover:border-green-500 transition-all">
+                <div class="text-center">
+                    <div class="mb-4 relative">
+                        <!-- Timer de Bloqueio -->
+                        <div class="absolute top-2 right-2 bg-red-600 text-xs px-3 py-1 rounded-full">
+                            ⏳ RESTA 1H02M
+                        </div>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguWxeskTycw0eK9nvafTahfOHlgP5Spp0vthB8DFBkYLkfioEIxa_UfANS52KVewb_zO9pTyWFY4_7MV6FYm2JCC5_a56WZnGiFOGf-Zyk1yU7_Pwz4NaQfPxAySaEPhGzEJ_liwIEkLvsht0WIh4gW-BX3G6Nf8wlsj0sb-GkSjyLlcsocruPbXErRriY/s2560/VW-Amarok-2025%20%28131%29.jpg" 
+                             alt="Amarok V6" 
+                             class="w-full h-48 object-cover rounded-xl mb-4">
+                    </div>
+
+                    <h3 class="text-2xl font-black text-white mb-2">AMAROK V6 2025</h3>
+                    
+                    <!-- Especificações Diretas -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 text-green-400">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-bolt mr-2"></i>
+                            258cv Turbo
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            0km Blindado
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-lock"></i>
+                        BOTÃO DA SORTE
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card PIX -->
+            <div class="bg-gray-900 rounded-2xl p-6 shadow-2xl border-2 border-green-500/30 hover:border-green-500 transition-all">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <img src="https://st2.depositphotos.com/1239637/12396/i/450/depositphotos_123965750-stock-photo-coins-brazil-notes-of-100.jpg" 
+                             alt="Prêmio PIX" 
+                             class="w-full h-48 object-cover rounded-xl mb-4">
+                    </div>
+
+                    <h3 class="text-2xl font-black text-white mb-2">R$150.000 NO PIX</h3>
+                    
+                    <!-- Vantagens Explosivas -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 text-green-400">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            97% de Chance
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-bolt mr-2"></i>
+                            Saque Imediato
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-wallet"></i>
+                        QUERO O DINHEIRO AGORA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Final Urgente -->
+        <div class="mt-12 text-center">
+            <div class="inline-block bg-red-600 text-white py-4 px-8 rounded-xl border-2 border-red-500/50">
+                <div class="text-3xl font-black mb-2">⚠️ ATENÇÃO!</div>
+                <p class="text-sm max-w-md mx-auto">Você está visualizando a cota premiada <br>
+                <span class="font-bold text-green-400">9489523</span> - Última disponível!</p>
+                
+                <button class="mt-4 bg-white text-red-600 hover:bg-gray-100 font-black py-3 px-8 rounded-lg transition-colors">
+                    <i class="fas fa-fire mr-2"></i> GARANTIR ANTES QUE OUTRO LEVE
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Interactive Section - Dark Urgent -->
+<section class="py-16 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-gray-900 rounded-xl border-2 border-green-500/20 shadow-2xl">
+            <!-- Cabeçalho Urgente -->
+            <div class="text-center p-8 border-b border-green-500/20">
+                <h2 class="text-3xl md:text-4xl font-black mb-4 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                    NÃO PERCA:<br>
+                    <span class="text-white">PASSO FINAL PARA GARANTIR!</span>
+                </h2>
+                <div class="text-xl font-bold text-green-400">
+                    Cota Premiada: <span class="neon-text">9489523</span>
+                </div>
+            </div>
+
+            <!-- Passos de Emergência -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
+                <!-- Passo 1 -->
+                <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all">
+                    <div class="text-green-400 text-3xl font-black mb-4 glow-number">1</div>
+                    <h3 class="text-xl font-bold text-white mb-2">CLIQUE NO BOTÃO</h3>
+                    <p class="text-gray-400">Ative suas chances 10X imediatamente</p>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all">
+                    <div class="text-green-400 text-3xl font-black mb-4 glow-number">2</div>
+                    <h3 class="text-xl font-bold text-white mb-2">SELECIONE SUAS COTAS</h3>
+                    <p class="text-gray-400">Escolha quantas cotas desejar</p>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="text-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all">
+                    <div class="text-green-400 text-3xl font-black mb-4 glow-number">3</div>
+                    <h3 class="text-xl font-bold text-white mb-2">CONFIRME SEU PRÊMIO</h3>
+                    <p class="text-gray-400">Se for a cota 9489523, é seu!</p>
+                </div>
+            </div>
+
+            <!-- CTA de Emergência -->
+            <div class="text-center p-8 bg-gray-800 border-t border-green-500/20">
+                <button class="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-4 px-14 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
+                    GARANTIR MINHAS COTAS AGORA!
+                </button>
+                <div class="mt-4 text-red-400 font-bold">
+                    ⏳ TEMPO RESTANTE: <span id="simple-timer" class="text-white">02:00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Rodapé Premium Dark -->
+<footer class="bg-gray-900 text-gray-400 py-8 border-t border-green-500/20">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Logo -->
+            <img src="https://i.ibb.co/Ngt79KZc/2606951-1-17473104266825d75a763c4306012100-2.webp" 
+                 alt="Logo" 
+                 class="h-14 w-auto opacity-90 hover:opacity-100 transition">
+
+            <!-- Direitos Autorais -->
+            <div class="text-center text-xs">
+                <p>© 2023 Rifa Digital</p>
+                <p class="mt-1">Este sorteio é 100% legalizado conforme Lei Federal 13.155/2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .glow-number {
+        text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+    }
+    .neon-text {
+        text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        animation: neon-pulse 1.5s infinite alternate;
+    }
+    @keyframes neon-pulse {
+        from { text-shadow: 0 0 5px rgba(74, 222, 128, 0.2); }
+        to { text-shadow: 0 0 20px rgba(74, 222, 128, 0.8); }
+    }
+</style>
+
+<script>
+    // Contador Regressivo Atualizado
+    function startSimpleTimer(duration) {
+        let timer = duration, hours, minutes, seconds;
+        const timerElement = document.getElementById('simple-timer');
+        
+        const interval = setInterval(() => {
+            hours = parseInt(timer / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerElement.textContent = hours + ":" + minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                timerElement.textContent = "00:00:00";
+                timerElement.classList.add('text-red-500');
+            }
+        }, 1000);
+    }
+    startSimpleTimer(7200); // 2 horas
+</script>
